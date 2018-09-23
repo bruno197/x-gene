@@ -1,6 +1,10 @@
 # x-gene
 
 API para encontrar genes mutantes em uma matrix de DNA
+URL da aplicação no heroku
+```
+https://floating-sierra-54525.herokuapp.com
+```
 
 ## Getting Started
 
