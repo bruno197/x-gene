@@ -8,4 +8,8 @@ public class CreateHumanException extends RuntimeException {
     public CreateHumanException() {
         super(MESSAGE);
     }
+
+    public CreateHumanException(final String message) {
+        super(message);
+    }
 }

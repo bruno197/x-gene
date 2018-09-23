@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GeneXDatabaseGateway {
-
-    Optional<List<Human>> findAllMutant();
-
     Human save(Human proposal);
+
+    Optional<List<Human>> findAll();
+
+    Optional<Human> findByDna(String[] dna);
 }

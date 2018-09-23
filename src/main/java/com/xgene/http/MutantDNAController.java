@@ -25,10 +25,10 @@ public class MutantDNAController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity checkHumanDna(
             @RequestBody @Valid final DnaJsonRequest request) {
-
         Human human = createHuman.create(HumanCommandBuilder.fromRequest(request));
-
-        return new ResponseEntity<>(HttpStatus.OK);
-
+        if(human.isMutant()) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 }

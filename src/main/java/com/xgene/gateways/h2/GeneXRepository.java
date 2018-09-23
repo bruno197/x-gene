@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface GeneXRepository extends JpaRepository<Human, Long> {
     List<Human> findByMutant(Boolean isMutant);
+
+    Human findByDna(String[] dna);
 }

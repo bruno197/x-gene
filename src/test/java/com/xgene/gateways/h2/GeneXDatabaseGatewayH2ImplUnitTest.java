@@ -70,7 +70,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
 
     @Test
     public void shouldFindWithSuccess() {
-        final Optional<List<Human>> human = this.geneXDatabaseGateway.findAllMutant();
+        final Optional<List<Human>> human = this.geneXDatabaseGateway.findAll();
 
         ArgumentCaptor<Human> argumentCaptorHuman = ArgumentCaptor.forClass(Human.class);
         verify(this.repository, VerificationModeFactory.times(1)).findByMutant(true);
@@ -81,11 +81,11 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
 
     @Test(expected= GeneXDatabaseGatewayException.class)
     public void shouldNotFindWithSuccess() {
-        final Optional<List<Human>> human = this.geneXDatabaseGateway.findAllMutant();
+        final Optional<List<Human>> human = this.geneXDatabaseGateway.findAll();
 
         doThrow(new RuntimeException()).when(repository).findByMutant(true);
         try {
-            this.geneXDatabaseGateway.findAllMutant();
+            this.geneXDatabaseGateway.findAll();
 
         } catch (GeneXDatabaseGatewayException e) {
             assertEquals("Error to save or read human to database", e.getMessage());

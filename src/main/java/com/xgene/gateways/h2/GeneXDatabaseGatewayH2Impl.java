@@ -16,18 +16,27 @@ public class GeneXDatabaseGatewayH2Impl implements GeneXDatabaseGateway {
     @Autowired
     private GeneXRepository repository;
 
-    @Override public Optional<List<Human>> findAllMutant() {
+    @Override public Human save(final Human proposal) {
         try {
-            return Optional.ofNullable(repository.findByMutant(true));
+            return repository.save(proposal);
         } catch (Exception e) {
             log.error(e.getMessage());
             throw new GeneXDatabaseGatewayException();
         }
     }
 
-    @Override public Human save(final Human proposal) {
+    @Override public Optional<List<Human>> findAll() {
         try {
-            return repository.save(proposal);
+            return Optional.ofNullable(repository.findAll());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new GeneXDatabaseGatewayException();
+        }
+    }
+
+    @Override public Optional<Human> findByDna(final String[] dna) {
+        try {
+            return Optional.ofNullable(repository.findByDna(dna));
         } catch (Exception e) {
             log.error(e.getMessage());
             throw new GeneXDatabaseGatewayException();
