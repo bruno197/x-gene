@@ -22,12 +22,12 @@ public class MutantDNAController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @Validated
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity checkHumanDna(
             @RequestBody @Valid final DnaJsonRequest request) {
         Human human = createHuman.create(HumanCommandBuilder.fromRequest(request));
         if(human.isMutant()) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
