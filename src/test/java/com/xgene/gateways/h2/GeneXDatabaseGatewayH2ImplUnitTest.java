@@ -49,7 +49,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
         assertNotNull(humanCaptor);
         assertNotNull(humanCaptor.isMutant());
         assertNotNull(humanCaptor.getName());
-        assertNull(humanCaptor.getDna());
+        assertNotNull(humanCaptor.getDna());
         assertNotNull(humanCaptor.getHuman_id());
         assertNull(humanCaptor.getGender());
     }

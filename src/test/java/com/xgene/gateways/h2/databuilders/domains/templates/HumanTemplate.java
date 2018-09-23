@@ -13,6 +13,7 @@ public class HumanTemplate implements TemplateLoader {
             add("human_id", 1);
             add("name", random("Jean Grey", "Scott Summers", "Warren Worthington"));
             add("mutant", true);
+            add("dna", new String[]{"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"});
         }});
     }
 }
