@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -34,7 +32,7 @@ public class GeneXRepositoryIntTest {
         assertEquals(0, this.geneXRepository.count());
 
         this.geneXRepository.save(newHuman);
-        List<Human> mutantSaved = this.geneXRepository.findByMutant(true);
+        Human mutantSaved = this.geneXRepository.findByDna(newHuman.getDna());
 
         assertNotNull(mutantSaved);
     }

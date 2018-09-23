@@ -16,6 +16,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.internal.verification.VerificationModeFactory;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -30,6 +32,9 @@ public class CreateHumanUnitTest {
 
     @Mock
     private GeneXDatabaseGateway geneXDatabaseGateway;
+
+    @Mock
+    private SearchTrees searchTrees;
 
     @BeforeClass
     public static void setUp() {
@@ -59,6 +64,8 @@ public class CreateHumanUnitTest {
 
         final HumanCommandBuilder humanCommandBuilder = HumanCommandBuilder.fromRequest(dnaJsonRequest);
 
+        when(this.geneXDatabaseGateway.findByDna(any(String[].class))).thenReturn(Optional.empty());
+        when(this.searchTrees.contains(any(String[].class), any(String.class))).thenReturn(true);
         when(this.geneXDatabaseGateway.save(any(Human.class))).thenThrow(new GeneXDatabaseGatewayException());
 
         try {

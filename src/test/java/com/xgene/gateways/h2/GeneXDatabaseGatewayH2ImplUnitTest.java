@@ -73,7 +73,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
         final Optional<List<Human>> human = this.geneXDatabaseGateway.findAll();
 
         ArgumentCaptor<Human> argumentCaptorHuman = ArgumentCaptor.forClass(Human.class);
-        verify(this.repository, VerificationModeFactory.times(1)).findByMutant(true);
+        verify(this.repository, VerificationModeFactory.times(1)).findAll();
 
         assertNotNull(human);
         assertTrue(human.isPresent());
@@ -81,9 +81,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
 
     @Test(expected= GeneXDatabaseGatewayException.class)
     public void shouldNotFindWithSuccess() {
-        final Optional<List<Human>> human = this.geneXDatabaseGateway.findAll();
-
-        doThrow(new RuntimeException()).when(repository).findByMutant(true);
+        doThrow(new RuntimeException()).when(repository).findAll();
         try {
             this.geneXDatabaseGateway.findAll();
 
