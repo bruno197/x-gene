@@ -27,11 +27,11 @@ public class DnaStatistic {
 
     private Statistic buildStatistic(final List<Human> humans) {
         long mutants = humans.stream()
-                .filter(h -> h.isMutant()).count();
+                .filter(Human::isMutant).count();
 
         return new Statistic(
                 (int) mutants,
-                (int) (humans.size()-mutants),
-                (double) (humans.size()-mutants)/mutants);
+                humans.size(),
+                (((double) mutants) / (double) humans.size()));
     }
 }

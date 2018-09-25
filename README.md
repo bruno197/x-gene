@@ -3,7 +3,8 @@
 API para encontrar genes mutantes em uma matrix de DNA
 URL da aplicação no heroku
 ```
-https://floating-sierra-54525.herokuapp.com
+https://floating-sierra-54525.herokuapp.com/mutant
+https://floating-sierra-54525.herokuapp.com/stats
 ```
 
 ## Getting Started
@@ -56,7 +57,7 @@ mvn test
 ### And coding style tests
 
 Testes unitários na camada de negócio e conecxão com banco de dados.
-89% de cobertura desconsiderando classes de domain, json e exception.
+93% de cobertura desconsiderando classes de domain, json e exception.
 
 ![coverage](./extras/coverage.png)
 

@@ -48,7 +48,7 @@ public class CreateHumanUnitTest {
 
     @Test
     public void createWithSuccess() {
-        final Human newHuman = Fixture.from(Human.class).gimme("ANY_HUMAN");
+        final Human newHuman = Fixture.from(Human.class).gimme("ANY_MUTANT");
         final DnaJsonRequest dnaJsonRequest = Fixture.from(DnaJsonRequest.class).gimme("ANY_REQUEST");
         final HumanCommandBuilder humanCommandBuilder = HumanCommandBuilder.fromRequest(dnaJsonRequest);
         when(this.createHuman.create(humanCommandBuilder)).thenReturn(newHuman);

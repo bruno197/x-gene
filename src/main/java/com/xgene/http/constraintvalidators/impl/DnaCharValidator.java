@@ -9,10 +9,6 @@ import java.util.regex.Pattern;
 
 public class DnaCharValidator implements ConstraintValidator<DnaChar, String[]> {
 
-    @Override public void initialize(final DnaChar constraintAnnotation) {
-
-    }
-
     @Override public boolean isValid(final String[] strings, final ConstraintValidatorContext constraintValidatorContext) {
         boolean isValid = false;
         if (StringUtils.isEmpty(strings)) {

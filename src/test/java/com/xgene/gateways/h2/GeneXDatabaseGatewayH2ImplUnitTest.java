@@ -40,7 +40,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
 
     @Test
     public void shouldSaveWithSuccess() {
-        final Human human = Fixture.from(Human.class).gimme("ANY_HUMAN");
+        final Human human = Fixture.from(Human.class).gimme("ANY_MUTANT");
         this.geneXDatabaseGateway.save(human);
 
         ArgumentCaptor<Human> argumentCaptorHuman = ArgumentCaptor.forClass(Human.class);
@@ -56,7 +56,7 @@ public class GeneXDatabaseGatewayH2ImplUnitTest {
 
     @Test(expected= GeneXDatabaseGatewayException.class)
     public void shouldNotSaveWithSuccess() {
-        final Human human = Fixture.from(Human.class).gimme("ANY_HUMAN");
+        final Human human = Fixture.from(Human.class).gimme("ANY_MUTANT");
 
         doThrow(new RuntimeException()).when(repository).save(human);
         try {

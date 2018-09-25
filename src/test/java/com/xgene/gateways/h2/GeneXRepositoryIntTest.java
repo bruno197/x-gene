@@ -28,7 +28,7 @@ public class GeneXRepositoryIntTest {
 
     @Test
     public void saveWithSuccess() {
-        final Human newHuman = Fixture.from(com.xgene.domains.Human.class).gimme("ANY_HUMAN");
+        final Human newHuman = Fixture.from(com.xgene.domains.Human.class).gimme("ANY_MUTANT");
         assertEquals(0, this.geneXRepository.count());
 
         this.geneXRepository.save(newHuman);
